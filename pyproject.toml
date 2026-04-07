@@ -4,4 +4,24 @@ version = "0.1.0"
 authors = [{ name = "Alex Pirogov", email = "pirogovalexandr00@mail.ru" }]
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "django>=6.0.4",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.9",
+]
+
+[tool.ruff]
+line-length = 99
+
+[tool.ruff.lint]
+select = ["C", "E", "F", "W", "B"]
+ignore = ["F541"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["qasb_kit"]
+
+[tool.ruff.format]
+quote-style = "single"
