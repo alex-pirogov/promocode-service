@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "3300c549-1b82-4fd5-9b6d-78c638453497",
+		"name": "Promo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"description": ""
+	},
+	"item": [
+		{
+			"name": "list promocodes",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/promocodes/",
+					"path": ["api", "v1", "promocodes"],
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000"
+				}
+			}
+		},
+		{
+			"name": "create promocode",
+			"request": {
+				"method": "POST",
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/promocodes/",
+					"path": ["api", "v1", "promocodes"],
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000"
+				},
+				"body": {
+					"mode": "raw",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"raw": "{\n  \"code\": \"PROMO1\",\n  \"bonus_type\": \"percent_discount\",\n  \"value\": \"3.00\",\n  \"is_active\": true,\n  \"active_from\": \"2026-04-08T15:58:56Z\",\n  \"active_to\": \"2026-04-08T15:58:57Z\",\n  \"activations_count\": 123123,\n  \"max_activations\": 300,\n  \"max_user_activations\": 1,\n  \"personal_for_user_id\": null,\n  \"is_for_new_users\": true,\n  \"comment\": \"my first promocode\",\n  \"plans\": [\n    1,\n    2,\n    3\n  ]\n}"
+				}
+			}
+		},
+		{
+			"name": "get promocode",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/promocodes/2/",
+					"path": ["api", "v1", "promocodes", "2"],
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000"
+				},
+				"body": {
+					"mode": "raw",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"raw": "{\n  \"code\": \"promocode 2\",\n  \"bonus_type\": \"percent_discount\",\n  \"value\": \"3.00\",\n  \"is_active\": true,\n  \"active_from\": \"2026-04-08T15:58:56Z\",\n  \"active_to\": \"2026-04-08T15:58:57Z\",\n  \"activations_count\": 0,\n  \"max_activations\": 300,\n  \"max_user_activations\": 1,\n  \"personal_for_user_id\": null,\n  \"is_for_new_users\": true,\n  \"comment\": \"my first promocode\",\n  \"plans\": [\n    1,\n    2,\n    3\n  ]\n}"
+				}
+			}
+		},
+		{
+			"name": "update promocode",
+			"request": {
+				"method": "PUT",
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/promocodes/1/",
+					"path": ["api", "v1", "promocodes", "1"],
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000"
+				},
+				"body": {
+					"mode": "raw",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"raw": "{\n  \"code\": \"promocode 2123123\",\n  \"bonus_type\": \"percent_discount\",\n  \"value\": \"3.00\",\n  \"is_active\": true,\n  \"active_from\": \"2026-04-08T15:58:56Z\",\n  \"active_to\": \"2026-04-08T15:58:57Z\",\n  \"activations_count\": 123123,\n  \"max_activations\": 3,\n  \"max_user_activations\": 1,\n  \"personal_for_user_id\": null,\n  \"is_for_new_users\": true,\n  \"comment\": \"my first promocode\",\n  \"plans\": [\n    1,\n    2,\n    3\n  ]\n}"
+				}
+			}
+		},
+		{
+			"name": "check promocode",
+			"request": {
+				"method": "POST",
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/promocodes/check/",
+					"path": ["api", "v1", "promocodes", "check"],
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000"
+				},
+				"body": {
+					"mode": "raw",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"raw": "{\n  \"code\": \"PROMO1\",\n  \"plan_id\": 1,\n  \"user_id\": \"0b60b209-4977-4abd-9d8e-e00ede11890f\"\n}"
+				}
+			}
+		},
+		{
+			"name": "activate promocode",
+			"request": {
+				"method": "POST",
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/promocodes/activate/",
+					"path": ["api", "v1", "promocodes", "activate"],
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000"
+				},
+				"body": {
+					"mode": "raw",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"raw": "{\n  \"code\": \"promocod\",\n  \"plan_id\": 3,\n  \"user_id\": \"0b60b209-4977-4abd-9d8e-e00ede11890f\"\n}"
+				}
+			}
+		},
+		{
+			"name": "list activations",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/activations/?promocode=3",
+					"query": [
+						{
+							"key": "promocode",
+							"value": "3"
+						}
+					],
+					"variable": [],
+					"path": ["api", "v1", "activations"],
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000"
+				},
+				"body": {
+					"mode": "raw",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"raw": "{\n  \"promocode_id\": 1,\n  \"plan_id\": 3,\n  \"user_id\": \"0b60b209-4977-4abd-9d8e-e00ede11890f\"\n}"
+				}
+			}
+		}
+	]
+}
